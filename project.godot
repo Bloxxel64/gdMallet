@@ -11,11 +11,17 @@ config_version=5
 [application]
 
 config/name="gdMallet"
+run/main_scene="uid://dfjyfxh7jdisx"
 config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+global="*uid://b3yru7hfegtkb"
+
 [display]
 
+window/subwindows/embed_subwindows=false
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 

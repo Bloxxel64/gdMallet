@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://dfjyfxh7jdisx"]
+
+[ext_resource type="Script" uid="uid://dhph8vqkgjah" path="res://raw_vmf_edit.gd" id="2_pyidc"]
+[ext_resource type="Texture2D" uid="uid://clfbtb6q81b06" path="res://icon.svg" id="2_vvh5c"]
+
+[node name="Root" type="Node" unique_id=1381511087]
+
+[node name="Node3D" type="Node3D" parent="." unique_id=1722773669]
+
+[node name="Raw VMF" type="Window" parent="." unique_id=1346505558]
+oversampling_override = 1.0
+title = "Raw VMF Text"
+initial_position = 2
+size = Vector2i(500, 200)
+visible = false
+transient = true
+
+[node name="Control" type="Control" parent="Raw VMF" unique_id=1961459375]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CodeEdit" type="CodeEdit" parent="Raw VMF/Control" unique_id=169308854]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+placeholder_text = "No VMF Loaded! Open one from [File > Edit]. 
+Or start writing one yourself... if you want."
+auto_brace_completion_enabled = true
+auto_brace_completion_highlight_matching = true
+script = ExtResource("2_pyidc")
+
+[node name="MainWindow" type="Control" parent="." unique_id=1982302123]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="MainWindow" unique_id=2102039562]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.24719188, 0.2471919, 0.24719188, 1)
+
+[node name="TextureRect" type="TextureRect" parent="MainWindow" unique_id=1481447119]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.275
+anchor_top = 0.3
+anchor_right = 0.478
+anchor_bottom = 0.6
+offset_left = -16.800018
+offset_top = 30.59999
+offset_right = -100.656006
+offset_bottom = -13.800018
+grow_vertical = 2
+texture = ExtResource("2_vvh5c")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MainWindow" unique_id=500729156]
+layout_mode = 0
+offset_left = 487.0
+offset_top = 249.0
+offset_right = 740.0
+offset_bottom = 360.0
+text = "gdMallet"
