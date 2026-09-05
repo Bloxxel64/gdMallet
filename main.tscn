@@ -1,0 +1,120 @@
+[gd_scene format=3 uid="uid://dfjyfxh7jdisx"]
+
+[ext_resource type="Script" uid="uid://dhph8vqkgjah" path="res://src/raw_vmf_edit.gd" id="1_0xm2m"]
+[ext_resource type="FontFile" uid="uid://dhclmc6x34j4o" path="res://fonts/BlackOpsOne-Regular.ttf" id="2_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://clfbtb6q81b06" path="res://icon.svg" id="2_h2yge"]
+[ext_resource type="Script" uid="uid://cda8e5jg3wkk3" path="res://src/file_menu.gd" id="4_1bvp3"]
+
+[sub_resource type="Theme" id="Theme_wx22o"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vaasa"]
+font = ExtResource("2_1bvp3")
+font_size = 69
+
+[node name="Root" type="Node" unique_id=1381511087]
+
+[node name="Node3D" type="Node3D" parent="." unique_id=1722773669]
+
+[node name="Raw VMF" type="Window" parent="." unique_id=1346505558]
+oversampling_override = 1.0
+title = "Raw VMF Text"
+initial_position = 2
+size = Vector2i(500, 200)
+transient = true
+
+[node name="Control" type="Control" parent="Raw VMF" unique_id=1961459375]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CodeEdit" type="CodeEdit" parent="Raw VMF/Control" unique_id=169308854]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+placeholder_text = "No VMF Loaded! Open one from [File > Edit]. 
+Or start writing one yourself... if you want."
+auto_brace_completion_enabled = true
+auto_brace_completion_highlight_matching = true
+script = ExtResource("1_0xm2m")
+
+[node name="MainWindow" type="Control" parent="." unique_id=1982302123]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_wx22o")
+
+[node name="StartupScreen" type="Control" parent="MainWindow" unique_id=399314150]
+layout_mode = 1
+anchor_top = 0.05
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="MainWindow/StartupScreen" unique_id=2102039562]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.24719188, 0.2471919, 0.24719188, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="MainWindow/StartupScreen" unique_id=500729156]
+layout_mode = 0
+offset_left = 487.0
+offset_top = 204.6
+offset_right = 809.0
+offset_bottom = 315.6
+text = "gdMallet"
+label_settings = SubResource("LabelSettings_vaasa")
+
+[node name="TextureRect" type="TextureRect" parent="MainWindow/StartupScreen" unique_id=1481447119]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 220.0
+offset_right = -440.0
+offset_bottom = -220.0
+grow_vertical = 2
+texture = ExtResource("2_h2yge")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="MenuBar" type="MenuBar" parent="MainWindow" unique_id=358149296]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.1
+offset_bottom = -33.048
+grow_horizontal = 2
+
+[node name="File" type="PopupMenu" parent="MainWindow/MenuBar" unique_id=1044571951]
+oversampling_override = 1.0
+size = Vector2i(100, 120)
+item_count = 1
+item_0/text = "Load"
+item_0/id = 0
+script = ExtResource("4_1bvp3")
+
+[node name="View" type="PopupMenu" parent="MainWindow/MenuBar" unique_id=1406295956]
+oversampling_override = 1.0
+size = Vector2i(167, 100)
+item_count = 1
+item_0/text = "Raw VMF Editor"
+item_0/checkable = 1
+item_0/id = 0
+
+[connection signal="index_pressed" from="MainWindow/MenuBar/File" to="MainWindow/MenuBar/File" method="_on_index_pressed"]
