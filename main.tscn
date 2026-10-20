@@ -5,6 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://clfbtb6q81b06" path="res://icon.svg" id="2_h2yge"]
 [ext_resource type="Script" uid="uid://cda8e5jg3wkk3" path="res://src/file_menu.gd" id="4_1bvp3"]
 
+[sub_resource type="CodeHighlighter" id="CodeHighlighter_wdty0"]
+number_color = Color(0.38119268, 0.57434493, 1, 1)
+symbol_color = Color(0.9764706, 0.9098039, 0, 1)
+
 [sub_resource type="Theme" id="Theme_wx22o"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_vaasa"]
@@ -39,6 +43,7 @@ grow_horizontal = 2
 grow_vertical = 2
 placeholder_text = "No VMF Loaded! Open one from [File > Edit]. 
 Or start writing one yourself... if you want."
+syntax_highlighter = SubResource("CodeHighlighter_wdty0")
 auto_brace_completion_enabled = true
 auto_brace_completion_highlight_matching = true
 script = ExtResource("1_0xm2m")
